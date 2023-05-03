@@ -68,6 +68,15 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/logoutimpl")
+    public String logoutimpl(Model model, HttpSession session) {
+        log.info("로그아웃 버튼 눌림");
+        if(session!=null) {
+            session.invalidate();
+        }
+        return "redirect:/";
+    }
+
     @RequestMapping("/register")
     public String register(Model model) {
         model.addAttribute("center", "register");
